@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>الذكاء الاصطناعي</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <style>
+
+        body {
+            max-width: 1200px;
+            margin: auto;
+            font-size: large;
+            background-color: #f8f9fa;
+            color: #212529;
+            transition: background-color 0.3s, color 0.3s;
+            padding-top: 70px; /* ارتفاع النافبار */
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #2c2c2c !important;
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff;
+        }
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #ff9800;
+        }
+#navbarNav .nav-link.active {
+    color: #ff9800; /* اللون اللي يبين الرابط الحالي */
+    font-weight: bold;
+}
+
+        /* Form */
+        .mb-3 {
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 40px auto;
+        }
+
+        /* Scroll smooth */
+        html { scroll-behavior: smooth; }
+
+        /* الصور والفيديوهات */
+        img, video {
+            height: 300px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* الوضع الداكن */
+        body.dark-mode {
+            background-color: #121212;
+            color: #f8f9fa;
+        }
+        body.dark-mode .navbar {
+            background-color: #1e1e1e !important;
+        }
+        body.dark-mode .navbar-dark .nav-link {
+            color: #f1f1f1 !important;
+        }
+        body.dark-mode .navbar-dark .nav-link:hover {
+            color: #ff9800;
+        }
+        body.dark-mode .mb-3 {
+            background-color: #1e1e1e;
+            color: #ddd;
+            box-shadow: 0 0 20px rgba(255,255,255,0.1);
+        }
+        body.dark-mode .accordion-item {
+            background-color: #2c2c2c;
+            color: #ddd;
+        }
+        body.dark-mode .accordion-button {
+            background-color: #2c2c2c;
+            color: #ddd;
+        }
+        body.dark-mode .accordion-button:not(.collapsed) {
+            background-color: #444444;
+            color: #eee;
+        }
+        body.dark-mode .accordion-body {
+            background-color: #1e1e1e;
+            color: #d3c7c7;
+        }
+        body.dark-mode #gallery .card {
+            background-color: #2c2c2c;
+            color: #dad1d1;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+        body.dark-mode #gallery .card-text {
+            color: #cac1c1;
+        }
+        body.dark-mode #gallery .card,
+body.dark-mode #gallery2 .card,
+body.dark-mode #gallery img,
+body.dark-mode #gallery2 img,
+body.dark-mode #gallery video,
+body.dark-mode #gallery2 video {
+    background-color: #2c2c2c !important;
+    color: #ddd !important;
+}
+body.dark-mode #gallery,
+body.dark-mode #gallery2 {
+    background-color: #1e1e1e !important; /* خلي خلفية المعرض مظلمة */
+    color: #ddd !important;
+}
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+body {
+    background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+}
+body.dark-mode {
+    background: linear-gradient(to bottom, #121212, #1e1e1e);
+}
+.card:hover {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+}
+
+<!-- CSS لتوحيد الطول -->
+.gallery-img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+    </style>
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="100" tabindex="0">
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">الذكاء الاصطناعي</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">المزيد</a>
+              <ul class="dropdown-menu">
+             <li><a class="dropdown-item" href="#extra1">إضافة 1</a></li>
+             <li><a class="dropdown-item" href="#extra2">إضافة 2</a></li>
+              </ul>
+              </li>
+                <li class="nav-item"><a class="nav-link" href="#intro">المقدمة</a></li>
+                <li class="nav-item"><a class="nav-link" href="#definition">التعريف</a></li>
+                <li class="nav-item"><a class="nav-link" href="#types">الأنواع</a></li>
+                <li class="nav-item"><a class="nav-link" href="#techniques">التقنيات</a></li>
+                <li class="nav-item"><a class="nav-link" href="#applications">التطبيقات</a></li>
+                <li class="nav-item"><a class="nav-link" href="#advantages">المزايا</a></li>
+                <li class="nav-item"><a class="nav-link" href="#challenges">التحديات</a></li>
+                <li class="nav-item"><a class="nav-link" href="#future">المستقبل</a></li>
+                <li class="nav-item"><a class="nav-link" href="#conclusion">الخاتمة</a></li>
+            </ul>
+            <button id="toggleDarkMode" class="btn btn-outline-light ms-3">تبديل الوضع</button>
+        </div>
+    </div>
+</nav>
+
+<!-- Form -->
+<div class="mb-3">
+    <form dir="ltr">
+        <div>
+            <label for="exampleInputEmail1" class="form-label"><b>Email address</b></label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div>
+            <label for="exampleInputPassword1" class="form-label"><b>Password</b></label>
+            <input type="password" class="form-control" id="exampleInputPassword1" />
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <h2 dir="ltr">What is your birth month?</h2>
+        <select dir="ltr" name="month" id="month" class="form-select w-auto mx-auto">
+            <option value="january">January</option>
+            <option value="february">February</option>
+            <option value="march">March</option>
+            <option value="april">April</option>
+            <option value="may">May</option>
+            <option value="june">June</option>
+            <option value="july">July</option>
+            <option value="august">August</option>
+            <option value="september">September</option>
+            <option value="october">October</option>
+            <option value="november">November</option>
+            <option value="december">December</option>
+        </select>
+        <div dir="ltr" class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1" />
+            <label class="form-check-label" for="radioDefault1">Male</label>
+        </div>
+        <div dir="ltr" class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" checked />
+            <label class="form-check-label" for="radioDefault2">Female</label>
+        </div>
+        <div dir="ltr" class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="checkNativeSwitch" />
+            <label class="form-check-label" for="checkNativeSwitch">Are you a human?</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+    <!-- About -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6">
+                    <details>
+                        <summary>
+                            <h2>عن الذكاء الاصطناعي</h2>
+                            <abbr title="Artificial Intelligence">AI</abbr>
+                        </summary>
+                        <p>
+                            الذكاء الاصطناعي (AI) هو فرع من علوم الحاسوب يهدف لتطوير أنظمة قادرة على أداء مهام تتطلب ذكاءً بشريًا، مثل التعلم، التحليل، واتخاذ القرار.
+                            يستخدم في تطبيقات عديدة تشمل السيارات ذاتية القيادة، الروبوتات، الرعاية الصحية، وتحليل البيانات الضخمة.
+                        </p>
+                        <ul>
+                            <li>التعلم الآلي</li>
+                            <li>معالجة اللغة الطبيعية</li>
+                            <li>الرؤية الحاسوبية</li>
+                            <li>الروبوتات الذكية</li>
+                        </ul>
+                    </details>
+                </div>
+                <div class="col-md-6">
+                    <img src="18031410845564202506150719421942 (1).jpg" class="img-fluid rounded shadow-sm" alt="صورة الذكاء الاصطناعي" />
+                </div>
+            </div>
+        </div>
+    </section>
+  <!-- Accordion كامل مع fade-in -->
+<div class="container mt-5 pt-5">
+    <div class="accordion" id="accordionAIExample">
+
+        <!-- 1- المقدمة -->
+        <div class="accordion-item fade-in" id="intro">
+            <h2 class="accordion-header" id="headingIntro">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIntro" aria-expanded="true" aria-controls="collapseIntro">
+                    المقدمة
+                </button>
+            </h2>
+            <div id="collapseIntro" class="accordion-collapse collapse show" aria-labelledby="headingIntro" data-bs-parent="#accordionAIExample">
+                <div class="accordion-body">
+                    <p>شهد العالم في العقود الأخيرة ثورة تقنية هائلة غيرت شكل الحياة اليومية للبشر، وكان الذكاء الاصطناعي أحد أبرز ملامح هذه الثورة. الذكاء الاصطناعي (AI) هو فرع من علوم الحاسوب يهدف إلى تطوير أنظمة قادرة على القيام بمهام تتطلب عادة الذكاء البشري، مثل الفهم، التعلم، الاستنتاج، واتخاذ القرارات.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2- التعريف -->
+        <div class="accordion-item fade-in" id="definition">
+            <h2 class="accordion-header" id="headingDefinition">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDefinition" aria-expanded="false" aria-controls="collapseDefinition">
+                    تعريف الذكاء الاصطناعي
+                </button>
+            </h2>
+            <div id="collapseDefinition" class="accordion-collapse collapse" aria-labelledby="headingDefinition" data-bs-parent="#accordionAIExample">
+                <div class="accordion-body">
+                    <p>الذكاء الاصطناعي هو محاكاة عمليات التفكير البشري من خلال الآلات والبرامج الحاسوبية. يشمل التعلم، الاستدلال، والتحسين الذاتي للأداء. ظهر المصطلح لأول مرة عام 1956 على يد جون مكارثي.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3- الأنواع -->
+        <div class="accordion-item fade-in" id="types">
+            <h2 class="accordion-header" id="headingTypes">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTypes" aria-expanded="false" aria-controls="collapseTypes">
+                    أنواع الذكاء الاصطناعي
+                </button>
+            </h2>
+            <div id="collapseTypes" class="accordion-collapse collapse" aria-labelledby="headingTypes" data-bs-parent="#accordionAIExample">
+                <div class="accordion-body">
+                    <ul style="list-style-type: circle; padding-right: 20px;">
+                        <li><strong>الذكاء الاصطناعي الضيق:</strong> متخصص في مهمة واحدة.</li>
+                        <li><strong>الذكاء الاصطناعي العام:</strong> يمتلك قدرات معرفية تشبه الإنسان.</li>
+                        <li><strong>الذكاء الاصطناعي الفائق:</strong> يتجاوز قدرات البشر في جميع المجالات.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4- التقنيات -->
+        <div class="accordion-item fade-in" id="techniques">
+            <h2 class="accordion-header" id="headingTechniques">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechniques" aria-expanded="false" aria-controls="collapseTechniques">
+                    أهم تقنيات الذكاء الاصطناعي
+                </button>
+            </h2>
+            <div id="collapseTechniques" class="accordion-collapse collapse" aria-labelledby="headingTechniques" data-bs-parent="#accordionAIExample">
+                <div class="accordion-body">
+                    <dl style="text-align: right;">
+                        <dt><strong>تعلم الآلة (Machine Learning):</strong></dt>
+                        <dd>تدريب الحواسيب على التعلم من البيانات دون برمجة مباشرة.</dd>
+                        <dt><strong>التعلم العميق (Deep Learning):</strong></dt>
+                        <dd>يعتمد على الشبكات العصبية لمعالجة البيانات المعقدة.</dd>
+                        <dt><strong>معالجة اللغات الطبيعية (NLP):</strong></dt>
+                        <dd>تمكين الآلات من فهم اللغة البشرية والتفاعل بها.</dd>
+                        <dt><strong>رؤية الحاسوب:</strong></dt>
+                        <dd>تحليل الصور والفيديو والتعرف على الأنماط.</dd>
+                        <dt><strong>الروبوتات الذكية:</strong></dt>
+                        <dd>دمج الذكاء الاصطناعي مع الميكانيكا لأداء مهام عملية.</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5- التطبيقات -->
+        <div class="accordion-item fade-in" id="applications">
+            <h2 class="accordion-header" id="headingApplications">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseApplications" aria-expanded="false" aria-controls="collapseApplications">
+                    تطبيقات الذكاء الاصطناعي
+                </button>
+            </h2>
+            <div id="collapseApplications" class="accordion-collapse collapse" aria-labelledby="headingApplications" data-bs-parent="#accordionAIExample">
+                <div class="accordion-body">
+                    <ul style="list-style-type: disc; padding-right: 20px;">
+                        <li>المجال الطبي: تشخيص الأمراض، تطوير أدوية، جراحة بالروبوتات.</li>
+                        <li>التعليم: تصميم مناهج مخصصة، تقييم تلقائي، فصول افتراضية.</li>
+                        <li>الأعمال: تحليل بيانات الأسواق، خدمة عملاء ذكية، إدارة المخزون.</li>
+                        <li>الأمن: مراقبة ذكية، التعرف على الوجوه، كشف التهديدات.</li>
+                        <li>الحياة اليومية: المساعدات الصوتية، السيارات ذاتية القيادة، الترجمة الفورية.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6- المزايا -->
+        <div class="accordion-item fade-in" id="advantages">
+            <h2 class="accordion-header" id="headingAdvantages">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAdvantages" aria-expanded="false" aria-controls="collapseAdvantages">
+                    مزايا الذكاء الاصطناعي
+                </button>
+            </h2>
+            <div id="collapseAdvantages" class="accordion-collapse collapse" aria-labelledby="headingAdvantages" data-bs-parent="#accordionAIExample">
+                <div class="accordion-body">
+                    <ul style="list-style-type: disc; padding-right: 20px;">
+                        <li>أتمتة المهام الروتينية.</li>
+                        <li>تحليل بيانات ضخمة بسرعة ودقة.</li>
+                        <li>تحسين جودة الخدمات والمنتجات.</li>
+                        <li>تمكين الابتكار في مجالات متعددة.</li>
+                        <li>تعزيز اتخاذ القرارات المبنية على البيانات.</li>
+                        <li>الدقة العالية وتقليل الأخطاء.</li>
+                        <li>السرعة في معالجة البيانات.</li>
+                        <li>التكلفة المنخفضة على المدى البعيد.</li>
+                        <li>العمل المستمر دون توقف.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7- التحديات -->
+        <div class="accordion-item fade-in" id="challenges">
+            <h2 class="accordion-header" id="headingChallenges">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChallenges" aria-expanded="false" aria-controls="collapseChallenges">
+                    تحديات ومخاطر الذكاء الاصطناعي
+                </button>
+            </h2>
+            <div id="collapseChallenges" class="accordion-collapse collapse" aria-labelledby="headingChallenges" data-bs-parent="#accordionAIExample">
+                <div class="accordion-body">
+                    <ul style="list-style-type: disc; padding-right: 20px;">
+                        <li>الخصوصية والأمان: خطر تسريب البيانات.</li>
+                        <li>البطالة: فقدان بعض الوظائف بسبب الأتمتة.</li>
+                        <li>التحيز: وجود تحيز في الخوارزميات.</li>
+                        <li>فقدان السيطرة على أنظمة ذكية.</li>
+                        <li>الأخطاء التقنية: احتمال وجود أخطاء في القرارات.</li>
+                        <li>التكلفة الأولية: الاستثمار في البنية التحتية والتطوير.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8- المستقبل -->
+        <div class="accordion-item fade-in" id="future">
+            <h2 class="accordion-header" id="headingFuture">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFuture" aria-expanded="false" aria-controls="collapseFuture">
+                    مستقبل الذكاء الاصطناعي
+                </button>
+            </h2>
+            <div id="collapseFuture" class="accordion-collapse collapse" aria-labelledby="headingFuture" data-bs-parent="#accordionAIExample">
+                <div class="accordion-body">
+                    <p>من المتوقع تطور الذكاء الاصطناعي خلال السنوات القادمة مع دمج تقنيات مثل الذكاء الاصطناعي التوليدي، الروبوتات الذكية، والحوسبة الكمومية، مع الحاجة لأطر تنظيمية وأخلاقية لضمان استخدام آمن وعادل.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9- الخاتمة -->
+        <div class="accordion-item fade-in" id="conclusion">
+            <h2 class="accordion-header" id="headingConclusion">
+                <button class="accordion-button" type="button" disabled>
+                    <b>الخاتمة</b>
+                </button>
+            </h2>
+            <div class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                    الذكاء الاصطناعي ليس مجرد أداة، بل قوة تغيير هائلة تؤثر في المجتمع والاقتصاد. الاستفادة منه تتطلب توازنًا بين الابتكار والمسؤولية لتحقيق أقصى فائدة وتجنب المخاطر.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- روابط مكتبة GLightbox -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+<!--photo gallery-->
+
+<div class="container mb-3">
+  <input type="text" id="gallerySearch" class="form-control" placeholder="ابحث في الصور والفيديوهات...">
+</div>
+
+<section id="gallery" class="py-5 bg-light" class="fade-in">
+    <div class="container">
+        <h2 class="text-center mb-4">معرض الصور</h2>
+        <div class="row g-4 justify-content-center">
+
+            <!-- 1 -->
+            <div class="card" style="width: 20rem;">
+                <a href="ai.png" class="glightbox" data-glightbox="title: الذكاء الاصطناعي;">
+                    <img src="ai.png" class="card-img-top gallery-img" alt="الذكاء الاصطناعي" />
+                </a>
+                <div class="card-body">
+                    <p class="card-text">الذكاء الاصطناعي (AI) هو مصطلح شامل للاستراتيجيات والتقنيات المختلفة لجعل الآلات أكثر شبهًا بالبشر. وتشمل كل شيء من السيارات ذاتية القيادة إلى المساعدين الأذكياء مثل Alexa.</p>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="card" style="width: 20rem;">
+                <a href="istockphoto-2164746643-612x612.webp" class="glightbox" data-glightbox="title: التعلم العميق;">
+                    <img src="istockphoto-2164746643-612x612.webp" class="card-img-top gallery-img" alt="التعلم العميق" />
+                </a>
+                <div class="card-body">
+                    <p class="card-text">التعلم العميق تحت مظلة الذكاء الاصطناعي، ويُظهر الذكاء الاصطناعي التوليدي قدرات إبداعية تشبه الإنسان وهو شكل متقدم جدًا من التعلم.</p>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="card" style="width: 20rem;">
+                <a href="premium_photo-1718188840468-966eda66d93f.avif" class="glightbox" data-glightbox="title: الأطراف الصناعية الذكية;">
+                    <img src="premium_photo-1718188840468-966eda66d93f.avif" class="card-img-top gallery-img" alt="الأطراف الصناعية الذكية" />
+                </a>
+                <div class="card-body">
+                    <p class="card-text">الأطراف الصناعية الذكية تستخدم لتعويض الأطراف المفقودة وتتميز بقدرتها على محاكاة حركة الجسم الطبيعية والتحكم الدقيق في الحركة.</p>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="card" style="width: 20rem;">
+                <a href="premium_photo-1672759323880-e2954582326e.avif" class="glightbox" data-glightbox="title: الشبكات العصبونية;">
+                    <img src="premium_photo-1672759323880-e2954582326e.avif" class="card-img-top gallery-img" alt="الشبكات العصبونية" />
+                </a>
+                <div class="card-body">
+                    <p class="card-text">تشكل الشبكات العصبونية الاصطناعية جوهر تقنيات الذكاء الاصطناعي وتحاكي المعالجة التي تحدث في الدماغ البشري.</p>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="card" style="width: 20rem;">
+                <a href="photo-1716637644831-e046c73be197.avif" class="glightbox" data-glightbox="title: التحكم بالروبوت;">
+                    <img src="photo-1716637644831-e046c73be197.avif" class="card-img-top gallery-img" alt="التحكم بالروبوت" />
+                </a>
+                <div class="card-body">
+                    <p class="card-text">التحكم بالروبوت يعني توجيه سلوكه وأدائه من خلال معالجة البيانات لتوجيه المحركات وتنفيذ الأوامر.</p>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="card" style="width: 20rem;">
+                <a href="premium_photo-1730138223101-3b060f5e9b79.avif" class="glightbox" data-glightbox="title: أطراف صناعية لليد;">
+                    <img src="premium_photo-1730138223101-3b060f5e9b79.avif" class="card-img-top gallery-img" alt="أطراف صناعية لليد" />
+                </a>
+                <div class="card-body">
+                    <p class="card-text">أطراف صناعية لليد والساعد مزودة بحساسات EMG لتحويل الإشارات العصبية إلى حركات، مع إمكانية التعلم والتحكم.</p>
+                </div>
+            </div>
+
+            <!-- 7 -->
+            <div class="card" style="width: 20rem;">
+                <a href="premium_photo-1680608979589-e9349ed066d5.avif" class="glightbox" data-glightbox="title: الروبوتات;">
+                    <img src="premium_photo-1680608979589-e9349ed066d5.avif" class="card-img-top gallery-img" alt="الروبوتات" />
+                </a>
+                <div class="card-body">
+                    <p class="card-text">الروبوتات تساعد البشر في تحسين الإنتاجية، وزيادة الدقة، وتقليل المخاطر في الصناعات المختلفة.</p>
+                </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="card" style="width: 20rem;">
+                <a href="pexels-beyzaa-yurtkuran-279977530-16245254.jpg" class="glightbox" data-glightbox="title: المحادثة;">
+                    <img src="pexels-beyzaa-yurtkuran-279977530-16245254.jpg" class="card-img-top gallery-img" alt="المحادثة" />
+                </a>
+                <div class="card-body">
+                    <p class="card-text">للمحادثة يمكن الإجابة على كافة الاستفسارات، وتقنية تحاكي المحادثات البشرية بين الأفراد.</p>
+                </div>
+            </div>
+
+            <!-- 9 -->
+            <div class="card" style="width: 20rem;">
+                <a href="photo-1620712943543-bcc4688e7485.avif" class="glightbox" data-glightbox="title: الروبوتات الصناعية;">
+                    <img src="photo-1620712943543-bcc4688e7485.avif" class="card-img-top gallery-img" alt="الروبوتات الصناعية" />
+                </a>
+                <div class="card-body">
+                    <p class="card-text">الروبوت آلة متحركة مزودة بحاسب يساعدها على القيام بالأعمال المبرمجة، ويستخدم بقوة في الخدمات المنزلية والتجارية والطبية.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+    <!--video gallery-->
+    <section id="gallery2" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">معرض الفيديوهات</h2>
+            <div class="row g-4 justify-content-center">
+
+                <video controls autoplay muted width="100%" height="شعفخ">
+                    <source src="159053-818026314_tiny.mp4" type="video/mp4" />
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+
+                <div class="col-md-4 video-container">
+                    <a href="8466300-uhd_3840_2160_25fps.mp4" class="glightbox" data-gallery="ai-gallery" data-type="video">
+                        <video controls class="w-100 rounded shadow-sm gallery-item" muted playsinline preload="metadata">
+                            <source src="8466300-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+                        </video>
+                        <div class="video-overlay">
+                            الروبوتات الذكية المتفاعلة مع البيئة:<br />
+                            الروبوتات الصناعية: تستخدم في المصانع لتجميع المنتجات، تتجنب العقبات وتعمل بأمان جنبًا إلى جنب مع البشر.<br />
+                            الروبوتات المنزلية: مثل المكانس الكهربائية الذكية التي تتحرك تلقائيًا داخل البيت وتتجنب الأثاث.<br />
+                            الروبوتات الطبية: تساعد في العمليات الجراحية أو توزيع الأدوية بدقة.<br />
+                            الروبوتات الاستكشافية: تستخدم في استكشاف الفضاء أو المناطق الخطرة مثل أعماق البحار أو مناطق الكوارث.
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4 video-container">
+                    <a href="209409_tiny.mp4" class="glightbox" data-gallery="ai-gallery" data-type="video">
+                        <video controls class="w-100 rounded shadow-sm gallery-item" muted playsinline preload="metadata">
+                            <source src="209409_tiny.mp4" type="video/mp4" />
+                        </video>
+                        <div class="video-overlay">
+                            مستقبل الذكاء الاصطناعي في المدن: الذكاء الاصطناعي سيكون حجر الزاوية في تطوير المدن الذكية المستقبلية، التي تركز على تحسين حياة السكان من خلال خدمات أكثر ذكاءً وكفاءة. على الرغم من التحديات، فإن التقدم التقني والوعي المجتمعي سيساعدان في تحقيق مدن مستدامة وآمنة ومتطورة.
+                            دبي: تعتمد على الذكاء الاصطناعي في خدمات المدينة الذكية مثل الأمن، النقل، والخدمات الحكومية.
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4 video-container">
+                    <a href="8086707-uhd_3840_2160_25fps.mp4" class="glightbox" data-gallery="ai-gallery" data-type="video">
+                        <video controls class="w-100 rounded shadow-sm gallery-item" muted playsinline preload="metadata">
+                            <source src="8086707-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+                        </video>
+                        <div class="video-overlay">
+                            تكنولوجيا التحكم الذاتي:<br />
+                            -نظم التحكم في المنازل الذكية: مثل التحكم في درجة الحرارة، الإضاءة، وأنظمة الأمن بشكل تلقائي حسب حاجة المستخدم أو البيئة.<br />
+
+                            -السيارات ذاتية القيادة: تستخدم تكنولوجيا التحكم الذاتي لتحديد المسار، سرعة السيارة، وتفادي العقبات بدون تدخل بشري.<br />
+
+                            -الروبوتات الصناعية: تتحكم ذاتيًا في عمليات التصنيع، مثل ضبط سرعة الآلات أو تصحيح الأخطاء أثناء الإنتاج.
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4 video-container">
+                    <a href="8328103-uhd_2160_3840_25fps.mp4" class="glightbox" data-gallery="ai-gallery" data-type="video">
+                        <video controls class="w-100 rounded shadow-sm gallery-item" muted playsinline preload="metadata">
+                            <source src="8328103-uhd_2160_3840_25fps.mp4" type="video/mp4" />
+                        </video>
+                        <div class="video-overlay">
+                            أنظمة الرؤية الحاسوبية:هي تقنية تمكّن الحواسيب والآلات من "رؤية" وفهم الصور والفيديوهات بطريقة مشابهة للبشر. بمعنى آخر، هذه الأنظمة تستطيع استخراج معلومات ذات معنى من الصور الرقمية أو مقاطع الفيديو، مثل التعرف على الأشكال، الألوان، الحركة، أو حتى تفسير المشاهد.
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4 video-container">
+                    <a href="167586-837244667_tiny.mp4" class="glightbox" data-gallery="ai-gallery" data-type="video">
+                        <video controls class="w-100 rounded shadow-sm gallery-item" muted playsinline preload="metadata">
+                            <source src="167586-837244667_tiny.mp4" type="video/mp4" />
+                        </video>
+                        <div class="video-overlay">
+                            خوارزميات الذكاء الاصطناعي:الخوارزميات هي خطوات أو تعليمات مرتبة يتم اتباعها لحل مشكلة معينة أو لتحقيق هدف معين. في الذكاء الاصطناعي، الخوارزميات هي القواعد التي تعتمد عليها الأنظمة لتتعلم من البيانات، تتخذ قرارات، أو تحل مشكلات معقدة بشكل ذكي.
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4 video-container">
+                    <div class="video-card">
+                        <a href="8764795-uhd_2160_3840_25fps.mp4" class="glightbox" data-gallery="ai-gallery" data-type="video">
+                            <video controls class="w-100 rounded shadow-sm gallery-item" muted playsinline preload="metadata">
+                                <source src="8764795-uhd_2160_3840_25fps.mp4" type="video/mp4" />
+                            </video>
+                            <div class="video-info">
+                                روبوتات المستقبل:روبوتات الذكاء الاصطناعي هي آلات ذكية مجهزة بأنظمة وبرمجيات ذكاء اصطناعي تمكنها من أداء مهام متنوعة بطريقة مستقلة أو شبه مستقلة. تتميز هذه الروبوتات بقدرتها على الإدراك، التعلم، التفاعل مع البيئة، واتخاذ القرارات بشكل ذكي.
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- مكتبة GLightbox -->
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+<!-- تفعيل GLightbox -->
+<script>
+const lightbox = GLightbox({
+    touchNavigation: true,
+    loop: true,
+    closeButton: true
+});
+</script>
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('section, .accordion-item');
+  const navLinks = document.querySelectorAll('#navbarNav a.nav-link');
+
+  function highlightNav(){
+    let scrollPos = window.scrollY || window.pageYOffset;
+
+    sections.forEach(section => {
+      const top = section.offsetTop - 80; // عشان يوافق الـ padding
+      const bottom = top + section.offsetHeight;
+
+      const id = section.getAttribute('id');
+      if(scrollPos >= top && scrollPos < bottom){
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if(link.getAttribute('href') === '#' + id){
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }
+
+  window.addEventListener('scroll', highlightNav);
+  window.addEventListener('load', highlightNav);
+
+    // إعداد الـ GLightbox
+    const lightbox = GLightbox({ selector: '.glightbox' });
+
+    // زرار الوضع الداكن
+    const toggleButton = document.getElementById('toggleDarkMode');
+
+    // دالة لتطبيق الوضع الداكن
+    function applyDarkMode(isDark) {
+        if (isDark) {
+            document.body.classList.add('dark-mode');
+            toggleButton.classList.remove('btn-outline-light');
+            toggleButton.classList.add('btn-outline-warning');
+        } else {
+            document.body.classList.remove('dark-mode');
+            toggleButton.classList.remove('btn-outline-warning');
+            toggleButton.classList.add('btn-outline-light');
+        }
+        localStorage.setItem('darkMode', isDark ? 'on' : 'off');
+    }
+
+    // استرجاع الوضع المخزن عند التحميل
+    const darkModeStored = localStorage.getItem('darkMode') === 'on';
+    applyDarkMode(darkModeStored);
+
+    // عند الضغط على زرار الوضع الداكن
+    toggleButton.addEventListener('click', () => {
+        applyDarkMode(!document.body.classList.contains('dark-mode'));
+    });
+
+    // حفظ واسترجاع الأكوردين المفتوح
+    const accordionButtons = document.querySelectorAll('.accordion-button');
+    accordionButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            localStorage.setItem('openAccordion', button.getAttribute('data-bs-target'));
+        });
+    });
+
+    const openAccordion = localStorage.getItem('openAccordion');
+    if (openAccordion) {
+        const collapseEl = document.querySelector(openAccordion);
+        if (collapseEl) {
+            const bsCollapse = new bootstrap.Collapse(collapseEl, { toggle: true });
+        }
+    }
+
+    // Fade-in عند التمرير
+    function handleFadeIn() {
+        const elements = document.querySelectorAll('.fade-in');
+        const triggerBottom = window.innerHeight * 0.8;
+        elements.forEach(el => {
+            if (el.getBoundingClientRect().top < triggerBottom) el.classList.add('visible');
+        });
+    }
+    window.addEventListener('scroll', handleFadeIn);
+    handleFadeIn(); // عند التحميل
+
+    // Smooth scroll للـ Navbar
+    document.querySelectorAll('#navbarNav .nav-link').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // بحث الصور والفيديوهات
+    const gallerySearch = document.getElementById('gallerySearch');
+    if (gallerySearch) {
+        gallerySearch.addEventListener('input', () => {
+            const term = gallerySearch.value.toLowerCase();
+            document.querySelectorAll('#gallery .card, #gallery2 .video-container').forEach(item => {
+                const text = item.querySelector('p, .video-overlay')?.textContent.toLowerCase() || '';
+                item.style.display = text.includes(term) ? '' : 'none';
+            });
+        });
+    }
+
+});
+function handleFadeIn() {
+    const elements = document.querySelectorAll('.fade-in');
+    const triggerBottom = window.innerHeight * 0.8;
+
+    elements.forEach(el => {
+        const boxTop = el.getBoundingClientRect().top;
+        if(boxTop < triggerBottom) {
+            el.classList.add('visible');
+        }
+    });
+}
+
+// عند التمرير
+window.addEventListener('scroll', handleFadeIn);
+// عند التحميل
+window.addEventListener('load', handleFadeIn);
+
+// أكوردين: عند فتح أي قسم، فعل fade-in للعناصر داخله
+document.querySelectorAll('.accordion-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const target = document.querySelector(button.getAttribute('data-bs-target'));
+        target.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+    });
+});
+
+</script>
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">&copy; 2025 موقع الذكاء الاصطناعي | جميع الحقوق محفوظة</p>
+        <address>contact info:<br />
+            Phone: 01********* | E-mail: sa********345@mail.com</address>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
