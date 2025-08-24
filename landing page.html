@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sama Tech شركة ناشئة تقدم حلول الذكاء الاصطناعي وتطوير المواقع والتطبيقات."> 
+    <meta name="keywords" content="تكنولوجيا, تطوير مواقع, تطبيقات موبايل, ذكاء اصطناعي, خدمات سحابية"> 
+    <meta name="author" content="Sama Tech">
+    <meta property="og:title" content="Sama Tech - حلول الذكاء الاصطناعي وتطوير الويب">
+    <meta property="og:description" content="صفحة توضيحية لموقع Sama Tech مع خدمات تكنولوجية مبتكرة.">
+    <meta property="og:image" content="https://source.unsplash.com/1200x630/?technology">
+    <meta property="og:url" content="https://example.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Sama Tech - Landing Page متطور</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <style>
+     body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; }
+     /* Navbar */
+     .navbar-brand { font-weight: bold; }
+     /* Hero + Particles */
+     .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+     }
+     #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(-45deg, #6a11cb, #2575fc, #00c6ff, #ff758c);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      z-index: 1;
+     }
+     @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+     }
+     .hero-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      text-align: center;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 0 15px;
+     }
+     .btn-cta {
+      padding: 12px 30px;
+      font-size: 18px;
+      border-radius: 30px;
+      background: #fff;
+      color: #2575fc;
+      font-weight: bold;
+      transition: all 0.4s ease;
+      cursor: pointer;
+     }
+     .btn-cta:hover {
+      background: #2575fc;
+      color: #fff;
+      transform: scale(1.05);
+     }
+     section { padding: 80px 0; }
+     .icon-box { font-size: 40px; color: #2575fc; margin-bottom: 20px; }
+     .service-card {
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* تم تعديل السرعة لتكون سلسة */
+      background: #fff;
+       }
+     .service-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25); /* ظل أقوى لجعل التأثير أوضح */
+     }
+     .portfolio-card img.hover {
+      transform: scale(1.05);
+      transition: 0.3s ease;
+      width: 100%;
+      border-radius: 10px;
+     }
+     .team img { border-radius: 50%; width: 120px; height: 120px; }
+
+     .testimonial { background: #f9f9f9; border-radius: 10px; padding: 20px; margin: 10px; }
+     footer {
+      background: #111;
+      color: #bbb;
+      padding: 20px 0;
+      text-align: center;
+     }
+     footer a { color: #fff; margin: 0 10px; }
+     .accordion-button { font-weight: bold; }
+     /* زرار الرجوع لأعلى */
+     #backToTop {
+     position: fixed;
+     bottom: 30px;
+     right: 30px;
+     display: none; /* ظهوره هيتحكم فيه بالـJS */
+     background-color: #2575fc;
+     color: #fff;
+     border: none;
+     padding: 15px;
+     border-radius: 50%;
+     font-size: 10px;
+     cursor: pointer;
+     z-index: 9999;
+     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+     transition: all 0.3s ease;
+     }
+     /* تأثير hover باستخدام CSS بدل JS */
+     #backToTop:hover {
+     background-color: #1a5bcc;
+     box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+     }
+     /* Portfolio Images */
+     .portfolio-card img {
+      width: 100%;        /* يعرض الصورة بعرض البطاقة */
+      height: 250px;      /* ارتفاع ثابت */
+      object-fit: cover;  /* يقص الصورة ويملأ الإطار بدون تشويه */
+      border-radius: 10px;
+      }
+     /* Team Images */
+      #team img {
+       width: 120px;       /* نفس الحجم لجميع الصور */
+       height: 120px;
+       object-fit: cover;  /* يحافظ على نسبة الصورة */
+       border-radius: 50%; /* يجعل الصورة دائرية */
+       margin-bottom: 10px;
+     }
+     /* Media Queries */
+     @media (max-width: 768px) {
+     .portfolio-card img { height: 200px; }
+      #team img { width: 100px; height: 100px; }
+       }
+     @media (max-width: 480px) {
+     .portfolio-card img { height: 150px; }
+     #team img { width: 80px; height: 80px; }
+     .hero-content h1 { font-size: 28px; }
+     .hero-content p { font-size: 16px; }
+     .btn-cta { font-size: 16px; padding: 10px 25px; }
+     }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Sama Tech</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                 <li class="nav-item"><a class="nav-link" href="#about">من نحن</a></li>
+                 <li class="nav-item"><a class="nav-link" href="#services">الخدمات</a></li>
+                 <li class="nav-item"><a class="nav-link" href="#portfolio">الأعمال</a></li>
+                 <li class="nav-item"><a class="nav-link" href="#team">فريق العمل</a></li>
+                 <li class="nav-item"><a class="nav-link" href="#testimonials">آراء العملاء</a></li>
+                 <li class="nav-item"><a class="nav-link" href="#faq">الأسئلة الشائعة</a></li>
+                 <li class="nav-item"><a class="nav-link" href="#contact">تواصل</a></li>
+                </ul>
+            </div>
+       </div>
+   </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+     <div id="particles-js"></div>
+        <div class="hero-content" data-aos="fade-up">
+         <h1 class="display-4 fw-bold">مرحباً بك في Sama Tech</h1>
+         <p class="lead mb-4">حلول عصرية في الذكاء الاصطناعي وتطوير الويب</p>
+         <a href="#contact" class="btn btn-cta">ابدأ الآن</a>
+        </div>
+    </section>
+    <!-- About -->
+    <section id="about" data-aos="fade-up">
+        <div class="container text-center">
+             <h2 class="mb-4">من نحن</h2>
+             <p class="text-muted">Sama Tech شركة ناشئة تهتم بتقديم خدمات تكنولوجية مبتكرة. فريقنا متخصص في تطوير المواقع والتطبيقات وحلول الذكاء الاصطناعي.</p>
+        </div>
+    </section>
+    <!-- Services -->
+    <section id="services" class="bg-light">
+        <div class="container text-center">
+         <h2 class="mb-5" data-aos="fade-up">خدماتنا</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <i class="fas fa-laptop-code fa-3x text-primary mb-3"></i>
+                        <h5>تطوير المواقع</h5>
+                        <p>بناء مواقع عصرية وسريعة بأحدث التقنيات.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <i class="fas fa-mobile-alt fa-3x text-success mb-3"></i>
+                        <h5>تطبيقات الموبايل</h5>
+                        <p>تصميم تطبيقات تعمل على أندرويد و iOS.</p>
+                    </div>
+                </div>
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-card">
+                           <i class="fas fa-cloud fa-3x text-info mb-3"></i>
+                           <h5>حلول سحابية</h5>
+                           <p>توفير استضافة آمنة وقابلة للتوسع.</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio -->
+    <section id="portfolio" data-aos="fade-up">
+        <div class="container text-center">
+            <h2 class="mb-5">أعمالنا</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="portfolio-card">
+                        <img src="pexels-diva-plavalaguna-6937933.jpg" alt="project">
+                        <h6 class="mt-2">مشروع موقع</h6>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-card">
+                        <img src="pexels-asphotograpy-887751.jpg" alt="project">
+                        <h6 class="mt-2">تطبيق موبايل</h6>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="portfolio-card">
+                        <img src="pexels-dan-nelson-1667453-4973885.jpg" alt="project">
+                        <h6 class="mt-2">حل سحابي</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Team -->
+    <section id="team" class="text-center bg-light">
+        <div class="container">
+          <h2 data-aos="fade-up" data-aos-duration="1000">فريق العمل</h2>
+            <div class="row mt-4">
+                <div class="col-md-3" data-aos="fade-right" data-aos-duration="1200" data-aos-easing="ease-out-back" data-aos-delay="100">
+                    <img src="pexels-justin-shaifer-501272-1222271.jpg" alt="team1">
+                    <h6 class="mt-2">محمد</h6>
+                    <p></p>
+                </div>
+                <div class="col-md-3" data-aos="fade-right" data-aos-duration="1200" data-aos-easing="ease-out-back" data-aos-delay="200">
+                   <img src="pexels-danxavier-1212984.jpg" alt="team2">
+                   <h6 class="mt-2">يوسف</h6>
+                   <p></p>
+                </div>
+                <div class="col-md-3" data-aos="fade-left" data-aos-duration="1200" data-aos-easing="ease-out-back" data-aos-delay="300">
+                  <img src="pexels-stefanstefancik-91227.jpg" alt="team3">
+                  <h6 class="mt-2">عمار</h6>
+                  <p></p>
+                </div>
+                <div class="col-md-3" data-aos="fade-left" data-aos-duration="1200" data-aos-easing="ease-out-back" data-aos-delay="400">
+                  <img src="pexels-hannah-nelson-390257-1065084.jpg" alt="team4">
+                  <h6 class="mt-2">سارة</h6>
+                  <p></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-5">
+       <div class="container text-center">
+          <h2 class="mb-4" data-aos="fade-up" data-aos-duration="1000">ماذا يقول عملاؤنا</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-right" data-aos-duration="1200" data-aos-easing="ease-out-back" data-aos-delay="100">
+                    <div class="testimonial">
+                        <p>"خدمة ممتازة واحترافية عالية!"</p>
+                        <strong>- مالك</strong>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="1200" data-aos-easing="ease-out-back" data-aos-delay="200">
+                    <div class="testimonial">
+                      <p>"نفذوا مشروعي أسرع مما توقعت"</p>
+                      <strong>- يمني</strong>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-left" data-aos-duration="1200" data-aos-easing="ease-out-back" data-aos-delay="300">
+                    <div class="testimonial">
+                       <p>"أفضل تجربة تعاون مررت بها"</p>
+                       <strong>- علي</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FAQ -->
+    <section id="faq" data-aos="fade-up">
+        <div class="container">
+          <h2 class="text-center mb-4">الأسئلة الشائعة</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+                    <h2 class="accordion-header" id="q1">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1">
+                           كيف أبدأ؟
+                        </button>
+                    </h2>
+                    <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">يمكنك التسجيل عبر موقعنا وبدء الاستخدام فوراً.</div>
+                    </div>
+                </div>
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+                    <h2 class="accordion-header" id="q2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2">
+                          هل الخدمة مجانية؟
+                        </button>
+                    </h2>
+                    <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                       <div class="accordion-body">نوفر خطة مجانية وخطط مدفوعة حسب احتياجاتك.</div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact -->
+    <section id="contact" class="bg-light" data-aos="fade-up">
+        <div class="container text-center">
+          <h2 class="mb-4" data-aos="fade-up">تواصل معنا</h2>
+            <form class="row g-3 justify-content-center" data-aos="fade-up" data-aos-delay="200" onsubmit="return validateForm()">
+                <div class="col-md-5">
+                    <input type="text" class="form-control" placeholder="الاسم" id="name" aria-label="الاسم">
+                </div>
+                <div class="col-md-5">
+                    <input type="email" class="form-control" placeholder="البريد الإلكتروني" id="email" aria-label="البريد الإلكتروني">
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="4" placeholder="رسالتك" id="message" aria-label="رسالتك"></textarea>
+                </div>
+                <div class="col-md-10">
+                    <button type="submit" class="btn btn-primary btn-lg">إرسال</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- زرار الرجوع لأعلى -->
+    <button id="backToTop" title="الرجوع لأعلى">↑</button>
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Sama Tech - جميع الحقوق محفوظة</p>
+        <div>
+            <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
+            <a href="#"><i class="fab fa-twitter fa-lg"></i></a>
+            <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+      AOS.init({ duration: 1200, once: true });
+      // Particles.js settings
+      particlesJS("particles-js", {
+      "particles": {
+      "number": { "value": 80 },
+      "size": { "value": 3 },
+      "move": { "speed": 2 },
+      "line_linked": { "enable": true },
+      "color": { "value": "#ffffff" }
+       },
+       "interactivity": {
+      "events": { "onhover": { "enable": true, "mode": "repulse" } }
+       }
+      });
+      // Form validation بسيطة
+      function validateForm() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (!name || !email || !message) {
+      alert("من فضلك اكمل جميع الحقول قبل الإرسال!");
+      return false;
+      }
+      // Email format validation بسيطة
+       const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+       if (!emailPattern.test(email)) {
+      alert("من فضلك أدخل بريد إلكتروني صحيح!");
+      return false;
+      }
+      return true;
+      }
+      const backToTopButton = document.getElementById("backToTop");
+      // اظهار الزرار عند التمرير
+      window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            backToTopButton.style.display = "block";
+        } else {
+            backToTopButton.style.display = "none";
+        }
+      };
+      // الرجوع لأعلى عند الضغط
+       backToTopButton.addEventListener("click", function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    </script>
+</body>
+</html>
